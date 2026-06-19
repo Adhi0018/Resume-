@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<title>Calculator</title>
+
+<h2> Simple Calculator</h2><br><br>
+<style>
+body{
+    display:flex;
+    justify-content:center;
+    margin-top:50px;
+}
+
+.calculator{
+    border:1px solid black;
+    padding:10px;
+}
+
+input{
+    width:2000px;
+    height:40px;
+    text-align:right;
+    margin-bottom:10px;
+}
+
+button{
+    width:45px;
+    height:45px;
+    margin:2px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="calculator">
+
+<input type="text" id="display">
+
+<br> 
+
+<button onclick="display.value+='7'">7</button>
+<button onclick="display.value+='8'">8</button>
+<button onclick="display.value+='9'">9</button>
+<button onclick="display.value+='/'">/</button>
+
+<br>
+
+<button onclick="display.value+='4'">4</button>
+<button onclick="display.value+='5'">5</button>
+<button onclick="display.value+='6'">6</button>
+<button onclick="display.value+='*'">*</button>
+
+<br>
+
+<button onclick="display.value+='1'">1</button>
+<button onclick="display.value+='2'">2</button>
+<button onclick="display.value+='3'">3</button>
+<button onclick="display.value+='-'">-</button>
+
+<br>
+
+<button onclick="display.value+='0'">0</button>
+<button onclick="display.value+='.'">.</button>
+<button onclick="display.value=eval(display.value)">=</button>
+<button onclick="display.value+='+'">+</button>
+
+<br>
+
+<button onclick="display.value=''">C</button>
+
+</div>
+
+</body>
+</html>
