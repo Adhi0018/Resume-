@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sudoku Game</title>
+
+    <style>
+
+    body{
+        text-align:center;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    #board{
+        display:grid;
+        grid-template-columns:repeat(9,40px);
+        gap:2px;
+        justify-content:center;
+        margin-top:20px;
+    }
+
+    input{
+        width:40px;
+        height:40px;
+        text-align:center;
+        font-size:18px;
+        border:1px solid rgba(7, 0, 0, 0.242);
+    }
+
+    button{
+        margin-top:20px;
+        padding:10px 20px;
+    }
+
+    </style>
+
+</head>
+<body>
+
+<h2>Simple Sudoku Game</h2>
+
+<div id="board"></div>
+
+<button onclick="checkSudoku()">Check Answer</button>
+
+<p id="result"></p>
+
+<script>
+
+let puzzle = [
+[8,0,0,0,0,0,0,0,0],
+[0,0,3,6,0,0,0,0,0],
+[0,7,0,0,9,0,2,0,0],
+[0,5,0,0,0,7,0,0,0],
+[0,0,0,0,4,5,7,0,0],
+[0,0,0,1,0,0,0,3,0],
+[0,0,1,0,0,0,0,6,8],
+[0,0,8,5,0,0,0,1,0],
+[0,9,0,0,0,0,4,0,0]
+];
+
+let solution = [
+[8,1,2,7,5,3,6,4,9],
+[9,4,3,6,8,2,1,7,5],
+[6,7,5,4,9,1,2,8,3],
+[1,5,4,2,3,7,8,9,6],
+[3,6,9,8,4,5,7,2,1],
+[2,8,7,1,6,9,5,3,4],
+[5,2,1,9,7,4,3,6,8],
+[4,3,8,5,2,6,9,1,7],
+[7,9,6,3,1,8,4,5,2]
+];
+
+let board = document.getElementById("board");
+
+for(let i=0;i<9;i++)
+{
+    for(let j=0;j<9;j++)
+    {
+        let cell = document.createElement("input");
+
+        cell.id = i + "-" + j;
+
+        if(puzzle[i][j] != 0)
+        {
+            cell.value = puzzle[i][j];
+            cell.readOnly = true;
+        }
+
+        board.appendChild(cell);
+    }
+}
+
+function checkSudoku()
+{
+    let correct = true;
+
+    for(let i=0;i<9;i++)
+    {
+        for(let j=0;j<9;j++)
+        {
+            let cell = document.getElementById(i + "-" + j);
+
+            if(Number(cell.value) != solution[i][j])
+            {
+                correct = false;
+            }
+        }
+    }
+
+    if(correct)
+    {
+        document.getElementById("result").innerHTML = "Sudoku Solved";
+    }
+    else
+    {
+        document.getElementById("result").innerHTML = " Wrong Answer";
+    }
+}
+
+</script>
+
+</body>
+</html>
